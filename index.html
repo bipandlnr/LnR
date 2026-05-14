@@ -4,22 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO -->
-  <title>LNR Finland — SFS 2487 Word-pohjat & Asiakirjastandardointi yrityksille</title>
-  <meta name="description" content="LNR Finland tarjoaa SFS 2487:2024 -standardin mukaisia Word-pohjia yrityksille. Viralliset asiakirjamallit, dokumenttistandardointi ja asiakirjahallinnan konsultointi. Document House asiakirjat." />
-  <meta name="keywords" content="SFS 2487, asiakirjastandardi, Word-pohjat yrityksille, viralliset asiakirjamallit, dokumenttistandardointi, LNR Finland, Document House asiakirjat, yleisasiakirja, esityslista, kirje, muistio, pöytäkirja" />
+  <title>LNR Finland — Asiakirjamallit & SFS 2487 Word-pohjat yrityksille</title>
+  <meta name="description" content="LNR Finland toimittaa SFS 2487 -standardin mukaisia asiakirjamalleja yrityksille. Räätälöidyt Word-pohjat, dokumenttistandardointi ja konsultointi. Tilaa tai pyydä tarjous." />
+  <meta name="keywords" content="asiakirjamallit, SFS 2487, Word-pohjat yrityksille, viralliset asiakirjamallit, dokumenttistandardointi, LNR Finland, yleisasiakirja, esityslista, kirje, muistio, pöytäkirja, räätälöidyt asiakirjat" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="LNR Finland Oy" />
   <link rel="canonical" href="https://bipandlnr.github.io/LnR/" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LNR Finland — SFS 2487 Word-pohjat & Asiakirjastandardointi" />
-  <meta property="og:description" content="Viralliset SFS 2487 -standardin mukaiset Word-pohjat yrityksille. Asiantuntevaa asiakirjahallinnan konsultointia." />
+  <meta property="og:title" content="LNR Finland — Asiakirjamallit & SFS 2487 Word-pohjat" />
+  <meta property="og:description" content="Viralliset SFS 2487 -standardin mukaiset asiakirjamallit yrityksille. Räätälöinti ja konsultointi." />
   <meta property="og:url" content="https://bipandlnr.github.io/LnR/" />
   <meta property="og:locale" content="fi_FI" />
 
-  <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -29,7 +26,7 @@
         "@id": "https://bipandlnr.github.io/LnR/#organization",
         "name": "LNR Finland Oy",
         "url": "https://bipandlnr.github.io/LnR/",
-        "description": "LNR Finland Oy tarjoaa SFS 2487 -standardin mukaisia asiakirjaratkaisuja yrityksille"
+        "description": "LNR Finland Oy toimittaa SFS 2487 -standardin mukaisia asiakirjamalleja ja räätälöintipalveluja yrityksille"
       },
       {
         "@type": "Product",
@@ -75,73 +72,65 @@
       },
       {
         "@type": "Service",
-        "name": "Asiakirjahallinnan Konsultointi",
-        "description": "LNR Finland auttaa yrityksiä rakentamaan kestäviä dokumentaatioprosesseja ja automaatioita.",
+        "name": "Räätälöidyt asiakirjamallit",
+        "description": "LNR Finland räätälöi asiakirjamallit yrityksesi brändin, värimaailman ja tarpeiden mukaisesti.",
         "provider": { "@type": "Organization", "name": "LNR Finland Oy" }
       }
     ]
   }
   </script>
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <style>
-    body {
-      background-color: #f8fafc;
-      background-image:
-        radial-gradient(ellipse at 15% 20%, rgba(99,102,241,0.06) 0%, transparent 50%),
-        radial-gradient(ellipse at 85% 10%, rgba(168,85,247,0.05) 0%, transparent 45%),
-        radial-gradient(ellipse at 60% 80%, rgba(59,130,246,0.04) 0%, transparent 50%);
-      min-height: 100vh;
-    }
-    .glass {
-      background: rgba(255,255,255,0.82);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(0,0,0,0.07);
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-    }
-    .glass-featured {
-      background: rgba(238,242,255,0.92);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(99,102,241,0.28);
-      box-shadow: 0 4px 24px rgba(99,102,241,0.10);
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #4f46e5, #7c3aed, #0284c7);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .badge {
-      background: rgba(99,102,241,0.08);
-      border: 1px solid rgba(99,102,241,0.22);
-    }
-    .btn-primary { box-shadow: 0 2px 12px rgba(99,102,241,0.25); }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #ffffff; color: #111827; }
     html { scroll-behavior: smooth; }
+
+    .nav-link { color: #6b7280; font-size: .875rem; font-weight: 500; text-decoration: none; transition: color .15s; }
+    .nav-link:hover { color: #111827; }
+
+    .section-label { font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: #4f46e5; }
+
+    .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; transition: box-shadow .2s, border-color .2s; }
+    .card:hover { box-shadow: 0 8px 30px rgba(0,0,0,.08); border-color: #d1d5db; }
+
+    .card-featured { background: #f5f3ff; border: 1.5px solid #c7d2fe; border-radius: 12px; }
+
+    .btn-primary { background: #4338ca; color: #fff; font-weight: 600; border-radius: 8px; transition: background .15s, box-shadow .15s; box-shadow: 0 1px 3px rgba(67,56,202,.3); }
+    .btn-primary:hover { background: #3730a3; box-shadow: 0 4px 12px rgba(67,56,202,.35); }
+
+    .btn-outline { border: 1.5px solid #d1d5db; color: #374151; font-weight: 500; border-radius: 8px; transition: border-color .15s, color .15s; background: transparent; }
+    .btn-outline:hover { border-color: #6b7280; color: #111827; }
+
+    .divider { border: none; border-top: 1px solid #f3f4f6; }
+
+    /* Form */
+    .form-input { width: 100%; border: 1.5px solid #e5e7eb; border-radius: 8px; padding: .625rem .875rem; font-size: .875rem; color: #111827; outline: none; transition: border-color .15s; background: #fff; font-family: inherit; }
+    .form-input:focus { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,.12); }
+    .form-label { font-size: .8125rem; font-weight: 600; color: #374151; margin-bottom: .375rem; display: block; }
+
     ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: #f1f5f9; }
-    ::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.3); border-radius: 2px; }
+    ::-webkit-scrollbar-track { background: #f9fafb; }
+    ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 2px; }
   </style>
 </head>
-<body class="text-slate-800 font-sans antialiased">
+<body>
 
   <!-- Navigation -->
   <header>
-    <nav class="fixed top-0 w-full z-50 glass border-b border-slate-200/80 px-6 py-4">
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 px-6" style="padding-top:.9rem;padding-bottom:.9rem;">
       <div class="max-w-6xl mx-auto flex items-center justify-between">
-        <a href="#" class="text-indigo-700 font-bold text-lg tracking-tight">LNR Finland</a>
-        <div class="hidden md:flex items-center gap-8 text-sm text-slate-500">
-          <a href="#standardi" class="hover:text-slate-900 transition-colors">Standardi</a>
-          <a href="#tuotteet" class="hover:text-slate-900 transition-colors">Tuotteet</a>
-          <a href="#konsultointi" class="hover:text-slate-900 transition-colors">Konsultointi</a>
-          <a href="#yhteystiedot" class="hover:text-slate-900 transition-colors">Yhteystiedot</a>
+        <a href="#" class="font-bold text-lg text-indigo-700 tracking-tight">LNR Finland</a>
+        <div class="hidden md:flex items-center gap-7">
+          <a href="#standardi" class="nav-link">Standardi</a>
+          <a href="#tuotteet" class="nav-link">Pohjat</a>
+          <a href="#raatalointi" class="nav-link">Räätälöinti</a>
+          <a href="#kameleon" class="nav-link">Automaatio</a>
+          <a href="#yhteystiedot" class="nav-link">Yhteystiedot</a>
         </div>
-        <a href="#tuotteet" class="text-sm px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition-all font-medium btn-primary">
-          Tilaa pohjat →
-        </a>
+        <a href="#raatalointi" class="btn-primary text-sm px-5 py-2.5">Pyydä tarjous</a>
       </div>
     </nav>
   </header>
@@ -149,311 +138,350 @@
   <main>
 
     <!-- Hero -->
-    <section class="pt-36 pb-24 px-6" aria-label="Esittely">
+    <section class="pt-24 pb-20 px-6" aria-label="Esittely">
       <div class="max-w-6xl mx-auto">
         <div class="max-w-3xl">
-          <div class="inline-flex items-center gap-2 badge px-3 py-1.5 rounded-full text-xs text-indigo-600 font-medium mb-6">
-            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
-            SFS 2487:2024 -standardin mukaiset asiakirjamallit
-          </div>
-          <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6 text-slate-900">
-            Viralliset <span class="gradient-text">Word-pohjat</span><br />
-            yrityksesi brändiin
+          <p class="section-label mb-4">Asiakirjamallit yrityksille</p>
+          <h1 class="text-5xl md:text-6xl font-black leading-[1.07] tracking-tight text-gray-900 mb-6">
+            Asiakirjamallit,<br />jotka edustavat<br />brändiäsi.
           </h1>
-          <p class="text-xl text-slate-500 leading-relaxed mb-10 max-w-2xl">
-            LNR Finland tarjoaa <strong class="text-slate-700">SFS 2487 -standardin mukaisia</strong> virallisia asiakirjapohjia,
-            jotka yhdistävät standardien noudattamisen ja ammattimaisen brändi-ilmeen.
-            Dokumenttistandardointi tehokkaasti käyttöön.
+          <p class="text-lg text-gray-500 leading-relaxed mb-8 max-w-xl">
+            LNR Finland toimittaa SFS 2487 -standardin mukaisia virallisia asiakirjamalleja sekä
+            räätälöi ne yrityksesi ilmeen mukaisiksi. Valmiit pohjat heti käyttöön — tai
+            tilataan juuri teille sopivat.
           </p>
-          <div class="flex flex-wrap gap-4">
-            <a href="#tuotteet" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all btn-primary">
-              Katso tuotteet
-            </a>
-            <a href="#standardi" class="px-6 py-3 glass hover:bg-slate-50 text-slate-600 font-medium rounded-xl transition-all">
-              Mikä on SFS 2487?
-            </a>
+          <div class="flex flex-wrap gap-3">
+            <a href="#tuotteet" class="btn-primary px-6 py-3 text-sm">Katso valmiit pohjat</a>
+            <a href="#raatalointi" class="btn-outline px-6 py-3 text-sm">Pyydä räätälöintitarjous</a>
           </div>
         </div>
       </div>
     </section>
+
+    <hr class="divider" />
 
     <!-- Benefits strip -->
-    <section class="py-14 px-6 border-y border-slate-200/80 bg-white/50" aria-label="Hyödyt">
-      <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
-          <div class="flex flex-col items-center gap-2">
-            <div class="text-2xl">📖</div>
-            <p class="text-xs font-semibold text-slate-700 leading-snug">Helpompi<br />ymmärrettävyys</p>
+    <section class="py-12 px-6 bg-gray-50" aria-label="Hyödyt">
+      <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
+        <div>
+          <div class="text-2xl mb-2">📖</div>
+          <p class="text-xs font-semibold text-gray-700 leading-snug">Helpompi<br />ymmärrettävyys</p>
+        </div>
+        <div>
+          <div class="text-2xl mb-2">✅</div>
+          <p class="text-xs font-semibold text-gray-700 leading-snug">Vähemmän<br />virheitä</p>
+        </div>
+        <div>
+          <div class="text-2xl mb-2">🎨</div>
+          <p class="text-xs font-semibold text-gray-700 leading-snug">Brändin-<br />mukaisuus</p>
+        </div>
+        <div>
+          <div class="text-2xl mb-2">⚖️</div>
+          <p class="text-xs font-semibold text-gray-700 leading-snug">Standardi-<br />vaatimukset</p>
+        </div>
+        <div>
+          <div class="text-2xl mb-2">⏱️</div>
+          <p class="text-xs font-semibold text-gray-700 leading-snug">Ajansäästö<br />luomisessa</p>
+        </div>
+        <div>
+          <div class="text-2xl mb-2">🗂️</div>
+          <p class="text-xs font-semibold text-gray-700 leading-snug">Yhtenäinen<br />organisaatio</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- SFS 2487 explainer -->
+    <section id="standardi" class="py-20 px-6" aria-labelledby="standardi-otsikko">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="section-label mb-4">Standardi</p>
+          <h2 id="standardi-otsikko" class="text-3xl md:text-4xl font-black tracking-tight text-gray-900 mb-5">
+            Mikä on SFS 2487:2024?
+          </h2>
+          <p class="text-gray-500 leading-relaxed mb-5">
+            SFS 2487 on suomalainen asiakirjastandardi, joka määrittelee virallisten yritysasiakirjojen
+            asettelun ja rakenteen. Vuonna 2024 uudistettu versio modernisoi dokumenttisuunnittelun
+            ja huomioi saavutettavuuden sekä sähköiset työnkulut.
+          </p>
+          <p class="text-gray-500 leading-relaxed">
+            Standardia noudattavat asiakirjat ovat yhtenäisiä, helposti luettavia ja täyttävät
+            viranomaisvaatimukset. LNR Finlandin pohjat rakentuvat täsmälleen tämän
+            standardin päälle — valmiina käyttöön tai räätälöitynä brändiisi.
+          </p>
+          <p class="mt-5 text-sm text-gray-400">
+            Standardin voi hankkia Suomen Standardisoimisliitto SFS ry:ltä:
+            <a href="https://www.sfs.fi" target="_blank" rel="noopener" class="text-indigo-600 hover:underline">sfs.fi</a>
+          </p>
+        </div>
+        <div class="space-y-3">
+          <div class="card p-4 flex items-start gap-4">
+            <div class="w-9 h-9 rounded-lg bg-indigo-50 flex items-center justify-center shrink-0 text-indigo-600 font-bold text-sm">↔</div>
+            <div>
+              <p class="font-semibold text-gray-800 text-sm">Leveämmät asettelut</p>
+              <p class="text-gray-500 text-xs mt-0.5 leading-relaxed">Modernimpi tila ja parempi luettavuus kaikissa asiakirjatyypeissä.</p>
+            </div>
           </div>
-          <div class="flex flex-col items-center gap-2">
-            <div class="text-2xl">✅</div>
-            <p class="text-xs font-semibold text-slate-700 leading-snug">Vähemmän<br />virheitä</p>
+          <div class="card p-4 flex items-start gap-4">
+            <div class="w-9 h-9 rounded-lg bg-violet-50 flex items-center justify-center shrink-0 text-violet-600 font-bold text-sm">🏷</div>
+            <div>
+              <p class="font-semibold text-gray-800 text-sm">Kattava tietokenttien nimeäminen</p>
+              <p class="text-gray-500 text-xs mt-0.5 leading-relaxed">Selkeä metatietojärjestelmä koko asiakirjan läpi.</p>
+            </div>
           </div>
-          <div class="flex flex-col items-center gap-2">
-            <div class="text-2xl">🎨</div>
-            <p class="text-xs font-semibold text-slate-700 leading-snug">Brändin-<br />mukaisuus</p>
+          <div class="card p-4 flex items-start gap-4">
+            <div class="w-9 h-9 rounded-lg bg-emerald-50 flex items-center justify-center shrink-0 text-emerald-600 font-bold text-sm">✍</div>
+            <div>
+              <p class="font-semibold text-gray-800 text-sm">Sähköisen allekirjoituksen tuki</p>
+              <p class="text-gray-500 text-xs mt-0.5 leading-relaxed">Rakenne tukee sähköisiä työnkulkuja ja allekirjoittamista.</p>
+            </div>
           </div>
-          <div class="flex flex-col items-center gap-2">
-            <div class="text-2xl">⚖️</div>
-            <p class="text-xs font-semibold text-slate-700 leading-snug">Vaatimusten<br />täyttäminen</p>
+          <div class="card p-4 flex items-start gap-4">
+            <div class="w-9 h-9 rounded-lg bg-amber-50 flex items-center justify-center shrink-0 text-amber-600 font-bold text-sm">♿</div>
+            <div>
+              <p class="font-semibold text-gray-800 text-sm">Saavutettavuus</p>
+              <p class="text-gray-500 text-xs mt-0.5 leading-relaxed">Rakenne suunniteltu saavutettavuusohjeiden mukaisesti.</p>
+            </div>
           </div>
-          <div class="flex flex-col items-center gap-2">
-            <div class="text-2xl">⏱️</div>
-            <p class="text-xs font-semibold text-slate-700 leading-snug">Ajansäästö<br />luomisessa</p>
-          </div>
-          <div class="flex flex-col items-center gap-2">
-            <div class="text-2xl">🗂️</div>
-            <p class="text-xs font-semibold text-slate-700 leading-snug">Keskitetty<br />hallinta</p>
+          <div class="card p-4 flex items-start gap-4">
+            <div class="w-9 h-9 rounded-lg bg-rose-50 flex items-center justify-center shrink-0 text-rose-600 font-bold text-sm">👤</div>
+            <div>
+              <p class="font-semibold text-gray-800 text-sm">Metatieto ja käyttäjäroolit</p>
+              <p class="text-gray-500 text-xs mt-0.5 leading-relaxed">Käyttäjäkeskeinen laadunohjaus ja metatiedonhallinta.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Standard explainer -->
-    <section id="standardi" class="py-20 px-6" aria-labelledby="standardi-otsikko">
-      <div class="max-w-6xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <p class="text-indigo-500 text-sm font-semibold tracking-widest uppercase mb-3">Standardi</p>
-            <h2 id="standardi-otsikko" class="text-3xl md:text-4xl font-bold text-slate-900 mb-5">
-              Mikä on <span class="gradient-text">SFS 2487:2024?</span>
-            </h2>
-            <p class="text-slate-500 leading-relaxed mb-6">
-              SFS 2487 on suomalainen asiakirjastandardi, joka toimii asiakirjan reseptinä ja määrittelee,
-              miten viralliset yritysasiakirjat tulee asetella ja rakentaa. Vuonna 2024 uudistettu versio
-              huomioi digiajan vaatimukset ja saavutettavuuden.
-            </p>
-            <p class="text-slate-500 leading-relaxed">
-              Standardia noudattavat asiakirjat ovat helpommin luettavia, visuaalisesti yhdenmukaisia
-              ja täyttävät viranomaisvaatimukset. LNR Finlandin pohjat on rakennettu täsmälleen
-              tämän standardin mukaisesti — valmiina käyttöön.
-            </p>
-          </div>
-          <div class="space-y-3">
-            <div class="glass rounded-xl p-4 flex items-start gap-4">
-              <div class="w-8 h-8 rounded-lg bg-indigo-50 border border-indigo-100 flex items-center justify-center shrink-0 text-indigo-500 text-sm">↔</div>
-              <div>
-                <p class="font-semibold text-slate-800 text-sm">Leveämmät asettelut</p>
-                <p class="text-slate-500 text-xs mt-0.5 leading-relaxed">Modernimpi tila ja luettavuus kaikissa asiakirjatyypeissä.</p>
-              </div>
-            </div>
-            <div class="glass rounded-xl p-4 flex items-start gap-4">
-              <div class="w-8 h-8 rounded-lg bg-violet-50 border border-violet-100 flex items-center justify-center shrink-0 text-violet-500 text-sm">🏷</div>
-              <div>
-                <p class="font-semibold text-slate-800 text-sm">Tietokenttien kattava nimeäminen</p>
-                <p class="text-slate-500 text-xs mt-0.5 leading-relaxed">Selkeä metatietojärjestelmä koko asiakirjan läpi.</p>
-              </div>
-            </div>
-            <div class="glass rounded-xl p-4 flex items-start gap-4">
-              <div class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center shrink-0 text-emerald-500 text-sm">✍</div>
-              <div>
-                <p class="font-semibold text-slate-800 text-sm">Sähköinen allekirjoitus</p>
-                <p class="text-slate-500 text-xs mt-0.5 leading-relaxed">Asiakirjarakenne tukee sähköistä allekirjoittamista.</p>
-              </div>
-            </div>
-            <div class="glass rounded-xl p-4 flex items-start gap-4">
-              <div class="w-8 h-8 rounded-lg bg-amber-50 border border-amber-100 flex items-center justify-center shrink-0 text-amber-500 text-sm">♿</div>
-              <div>
-                <p class="font-semibold text-slate-800 text-sm">Saavutettavuus</p>
-                <p class="text-slate-500 text-xs mt-0.5 leading-relaxed">Rakenne ja typografia suunniteltu saavutettavuusohjeiden mukaisesti.</p>
-              </div>
-            </div>
-            <div class="glass rounded-xl p-4 flex items-start gap-4">
-              <div class="w-8 h-8 rounded-lg bg-rose-50 border border-rose-100 flex items-center justify-center shrink-0 text-rose-500 text-sm">👤</div>
-              <div>
-                <p class="font-semibold text-slate-800 text-sm">Metatieto ja käyttäjäroolit</p>
-                <p class="text-slate-500 text-xs mt-0.5 leading-relaxed">Korostunut rooli metatiedon hallinnassa ja käyttäjäkeskeisessä laadussa.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <hr class="divider" />
 
     <!-- Products — Bento grid -->
-    <section id="tuotteet" class="py-20 px-6 bg-white/40" aria-labelledby="tuotteet-otsikko">
+    <section id="tuotteet" class="py-20 px-6 bg-gray-50" aria-labelledby="tuotteet-otsikko">
       <div class="max-w-6xl mx-auto">
         <header class="mb-12">
-          <p class="text-indigo-500 text-sm font-semibold tracking-widest uppercase mb-2">Tuotteet</p>
-          <h2 id="tuotteet-otsikko" class="text-3xl md:text-4xl font-bold text-slate-900">
-            SFS 2487 <span class="gradient-text">Word-pohjat</span>
+          <p class="section-label mb-3">Valmiit pohjat</p>
+          <h2 id="tuotteet-otsikko" class="text-3xl md:text-4xl font-black tracking-tight text-gray-900">
+            SFS 2487 Word-pohjat
           </h2>
-          <p class="text-slate-500 mt-3 max-w-xl">Viisi virallista asiakirjapohjaa SFS 2487:2024 -standardin mukaisesti. Tilaa yksittäin tai kaikki kerralla edullisemmalla hinnalla.</p>
+          <p class="text-gray-500 mt-3 max-w-lg text-sm leading-relaxed">Viisi virallista asiakirjapohjaa standardin mukaisesti. Tilaa yksittäin tai hanki kaikki kerralla.</p>
         </header>
 
-        <!-- Bento grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-          <!-- Yleisasiakirja -->
-          <article class="glass rounded-2xl p-6 hover:shadow-md transition-all flex flex-col">
-            <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-5 text-blue-500 text-lg">📝</div>
-            <h3 class="text-slate-900 font-semibold text-lg mb-2">Yleisasiakirja</h3>
-            <p class="text-slate-500 text-sm leading-relaxed flex-1 mb-6">SFS 2487 standardin mukainen yleisasiakirjapohja. Sopii kaikkiin yleisiin yritysasiakirjoihin ja viralliseen viestintään.</p>
-            <div class="flex items-end justify-between">
-              <div>
-                <span class="text-2xl font-bold text-slate-900">20 €</span>
-                <span class="text-slate-400 text-sm ml-1">+ alv</span>
-              </div>
-              <a href="mailto:info@lnrfinland.fi?subject=Tilaus: Yleisasiakirja" class="text-xs text-indigo-600 bg-indigo-50 border border-indigo-100 px-3 py-1.5 rounded-lg font-medium hover:bg-indigo-100 transition-colors">Tilaa →</a>
+          <article class="card p-6 flex flex-col">
+            <div class="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center mb-5 text-blue-500">📝</div>
+            <h3 class="font-bold text-gray-900 mb-2">Yleisasiakirja</h3>
+            <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5">SFS 2487 standardin mukainen yleisasiakirjapohja. Sopii kaikkiin yleisiin yritysasiakirjoihin.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-xl font-black text-gray-900">20 € <span class="text-sm font-normal text-gray-400">+ alv</span></span>
+              <a href="mailto:info@lnrfinland.fi?subject=Tilaus: Yleisasiakirja" class="btn-primary text-xs px-4 py-2">Tilaa</a>
             </div>
           </article>
 
-          <!-- Esityslista -->
-          <article class="glass rounded-2xl p-6 hover:shadow-md transition-all flex flex-col">
-            <div class="w-10 h-10 rounded-xl bg-violet-50 border border-violet-100 flex items-center justify-center mb-5 text-violet-500 text-lg">📋</div>
-            <h3 class="text-slate-900 font-semibold text-lg mb-2">Esityslista</h3>
-            <p class="text-slate-500 text-sm leading-relaxed flex-1 mb-6">SFS 2487 standardin mukainen esityslistapohja. Selkeä rakenne kokousten ja tilaisuuksien asialistaukseen.</p>
-            <div class="flex items-end justify-between">
-              <div>
-                <span class="text-2xl font-bold text-slate-900">20 €</span>
-                <span class="text-slate-400 text-sm ml-1">+ alv</span>
-              </div>
-              <a href="mailto:info@lnrfinland.fi?subject=Tilaus: Esityslista" class="text-xs text-indigo-600 bg-indigo-50 border border-indigo-100 px-3 py-1.5 rounded-lg font-medium hover:bg-indigo-100 transition-colors">Tilaa →</a>
+          <article class="card p-6 flex flex-col">
+            <div class="w-9 h-9 rounded-lg bg-violet-50 flex items-center justify-center mb-5 text-violet-500">📋</div>
+            <h3 class="font-bold text-gray-900 mb-2">Esityslista</h3>
+            <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5">SFS 2487 standardin mukainen esityslistapohja. Selkeä rakenne kokouksiin ja tilaisuuksiin.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-xl font-black text-gray-900">20 € <span class="text-sm font-normal text-gray-400">+ alv</span></span>
+              <a href="mailto:info@lnrfinland.fi?subject=Tilaus: Esityslista" class="btn-primary text-xs px-4 py-2">Tilaa</a>
             </div>
           </article>
 
-          <!-- Kirje -->
-          <article class="glass rounded-2xl p-6 hover:shadow-md transition-all flex flex-col">
-            <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-5 text-emerald-500 text-lg">✉️</div>
-            <h3 class="text-slate-900 font-semibold text-lg mb-2">Kirje</h3>
-            <p class="text-slate-500 text-sm leading-relaxed flex-1 mb-6">SFS 2487 standardin mukainen kirjepohja. Sopii kaikkiin virallisiin yhteydenottoihin ja asiakirjaliikenteeseen.</p>
-            <div class="flex items-end justify-between">
-              <div>
-                <span class="text-2xl font-bold text-slate-900">20 €</span>
-                <span class="text-slate-400 text-sm ml-1">+ alv</span>
-              </div>
-              <a href="mailto:info@lnrfinland.fi?subject=Tilaus: Kirje" class="text-xs text-indigo-600 bg-indigo-50 border border-indigo-100 px-3 py-1.5 rounded-lg font-medium hover:bg-indigo-100 transition-colors">Tilaa →</a>
+          <article class="card p-6 flex flex-col">
+            <div class="w-9 h-9 rounded-lg bg-emerald-50 flex items-center justify-center mb-5 text-emerald-500">✉️</div>
+            <h3 class="font-bold text-gray-900 mb-2">Kirje</h3>
+            <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5">SFS 2487 standardin mukainen kirjepohja viralliseen yhteydenpitoihin ja asiakirjaliikenteeseen.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-xl font-black text-gray-900">20 € <span class="text-sm font-normal text-gray-400">+ alv</span></span>
+              <a href="mailto:info@lnrfinland.fi?subject=Tilaus: Kirje" class="btn-primary text-xs px-4 py-2">Tilaa</a>
             </div>
           </article>
 
-          <!-- Muistio -->
-          <article class="glass rounded-2xl p-6 hover:shadow-md transition-all flex flex-col">
-            <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center mb-5 text-amber-500 text-lg">📓</div>
-            <h3 class="text-slate-900 font-semibold text-lg mb-2">Muistio</h3>
-            <p class="text-slate-500 text-sm leading-relaxed flex-1 mb-6">SFS 2487 standardin mukainen muistiopohja. Jäsennelty rakenne sisäiseen ja ulkoiseen raportointiin.</p>
-            <div class="flex items-end justify-between">
-              <div>
-                <span class="text-2xl font-bold text-slate-900">20 €</span>
-                <span class="text-slate-400 text-sm ml-1">+ alv</span>
-              </div>
-              <a href="mailto:info@lnrfinland.fi?subject=Tilaus: Muistio" class="text-xs text-indigo-600 bg-indigo-50 border border-indigo-100 px-3 py-1.5 rounded-lg font-medium hover:bg-indigo-100 transition-colors">Tilaa →</a>
+          <article class="card p-6 flex flex-col">
+            <div class="w-9 h-9 rounded-lg bg-amber-50 flex items-center justify-center mb-5 text-amber-500">📓</div>
+            <h3 class="font-bold text-gray-900 mb-2">Muistio</h3>
+            <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5">SFS 2487 standardin mukainen muistiopohja sisäiseen ja ulkoiseen raportointiin.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-xl font-black text-gray-900">20 € <span class="text-sm font-normal text-gray-400">+ alv</span></span>
+              <a href="mailto:info@lnrfinland.fi?subject=Tilaus: Muistio" class="btn-primary text-xs px-4 py-2">Tilaa</a>
             </div>
           </article>
 
-          <!-- Pöytäkirja -->
-          <article class="glass rounded-2xl p-6 hover:shadow-md transition-all flex flex-col">
-            <div class="w-10 h-10 rounded-xl bg-rose-50 border border-rose-100 flex items-center justify-center mb-5 text-rose-500 text-lg">📜</div>
-            <h3 class="text-slate-900 font-semibold text-lg mb-2">Pöytäkirja</h3>
-            <p class="text-slate-500 text-sm leading-relaxed flex-1 mb-6">SFS 2487 standardin mukainen pöytäkirjapohja. Virallinen asettelu kokousten ja hallituksen päätösten dokumentointiin.</p>
-            <div class="flex items-end justify-between">
-              <div>
-                <span class="text-2xl font-bold text-slate-900">20 €</span>
-                <span class="text-slate-400 text-sm ml-1">+ alv</span>
-              </div>
-              <a href="mailto:info@lnrfinland.fi?subject=Tilaus: Pöytäkirja" class="text-xs text-indigo-600 bg-indigo-50 border border-indigo-100 px-3 py-1.5 rounded-lg font-medium hover:bg-indigo-100 transition-colors">Tilaa →</a>
+          <article class="card p-6 flex flex-col">
+            <div class="w-9 h-9 rounded-lg bg-rose-50 flex items-center justify-center mb-5 text-rose-500">📜</div>
+            <h3 class="font-bold text-gray-900 mb-2">Pöytäkirja</h3>
+            <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5">SFS 2487 standardin mukainen pöytäkirjapohja kokousten ja hallituspäätösten dokumentointiin.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-xl font-black text-gray-900">20 € <span class="text-sm font-normal text-gray-400">+ alv</span></span>
+              <a href="mailto:info@lnrfinland.fi?subject=Tilaus: Pöytäkirja" class="btn-primary text-xs px-4 py-2">Tilaa</a>
             </div>
           </article>
 
-          <!-- Koko setti — full width, highlighted -->
-          <article class="md:col-span-3 glass-featured rounded-2xl p-8 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-72 h-72 bg-indigo-100/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 relative z-10">
-              <div class="flex-1">
-                <div class="inline-flex items-center gap-2 bg-indigo-100 border border-indigo-200 px-3 py-1 rounded-full text-xs text-indigo-700 font-medium mb-4">
-                  ⭐ Suosituin valinta — säästä 40 €
-                </div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-3">Koko setti — Kaikki viisi pohjaa</h3>
-                <p class="text-slate-600 leading-relaxed max-w-2xl">
-                  Kaikki viisi <strong>SFS 2487 standardin mukaista</strong> Word-pohjaa yhdessä paketissa.
-                  Täydellinen ratkaisu yrityksen dokumenttistandardointiin.
-                </p>
-                <ul class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-600">
-                  <li class="flex items-center gap-1.5"><span class="text-indigo-500">✓</span> Yleisasiakirja</li>
-                  <li class="flex items-center gap-1.5"><span class="text-indigo-500">✓</span> Esityslista</li>
-                  <li class="flex items-center gap-1.5"><span class="text-indigo-500">✓</span> Kirje</li>
-                  <li class="flex items-center gap-1.5"><span class="text-indigo-500">✓</span> Muistio</li>
-                  <li class="flex items-center gap-1.5"><span class="text-indigo-500">✓</span> Pöytäkirja</li>
-                </ul>
+          <!-- Koko setti -->
+          <article class="card-featured p-6 flex flex-col">
+            <div class="inline-flex items-center gap-1.5 bg-indigo-600 text-white text-xs font-semibold px-2.5 py-1 rounded-full mb-5 self-start">⭐ Säästä 40 €</div>
+            <h3 class="font-black text-gray-900 text-lg mb-2">Koko setti</h3>
+            <p class="text-gray-600 text-sm leading-relaxed flex-1 mb-5">
+              Kaikki viisi SFS 2487 -standardin mukaista pohjaa: yleisasiakirja, esityslista, kirje, muistio ja pöytäkirja.
+            </p>
+            <ul class="mb-5 space-y-1 text-xs text-gray-500">
+              <li class="flex items-center gap-1.5"><span class="text-indigo-500 font-bold">✓</span> Yleisasiakirja</li>
+              <li class="flex items-center gap-1.5"><span class="text-indigo-500 font-bold">✓</span> Esityslista</li>
+              <li class="flex items-center gap-1.5"><span class="text-indigo-500 font-bold">✓</span> Kirje</li>
+              <li class="flex items-center gap-1.5"><span class="text-indigo-500 font-bold">✓</span> Muistio</li>
+              <li class="flex items-center gap-1.5"><span class="text-indigo-500 font-bold">✓</span> Pöytäkirja</li>
+            </ul>
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-xs text-gray-400 line-through">100 €</span>
+                <span class="text-xl font-black text-gray-900 ml-2">60 € <span class="text-sm font-normal text-gray-400">+ alv</span></span>
               </div>
-              <div class="text-center md:text-right shrink-0">
-                <div class="text-slate-400 text-sm line-through mb-1">yht. 100 €</div>
-                <div class="text-5xl font-bold text-slate-900">60 €</div>
-                <div class="text-slate-400 text-sm mt-1">+ alv</div>
-                <a href="mailto:info@lnrfinland.fi?subject=Tilaus: Koko setti" class="mt-5 inline-block px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all btn-primary">
-                  Tilaa setti →
-                </a>
-              </div>
+              <a href="mailto:info@lnrfinland.fi?subject=Tilaus: Koko setti" class="btn-primary text-xs px-4 py-2">Tilaa setti</a>
             </div>
           </article>
 
         </div>
-
-        <!-- SFS standard note -->
-        <p class="mt-6 text-sm text-slate-400 text-center">
-          SFS 2487 -standardin voi hankkia Suomen Standardisoimisliitto SFS ry:ltä osoitteesta
-          <a href="https://www.sfs.fi" target="_blank" rel="noopener" class="text-indigo-500 hover:text-indigo-700 underline underline-offset-2">sfs.fi</a>.
-        </p>
-
       </div>
     </section>
 
-    <!-- Consultation -->
-    <section id="konsultointi" class="py-20 px-6" aria-labelledby="konsultointi-otsikko">
-      <div class="max-w-6xl mx-auto">
-        <div class="glass rounded-3xl p-10 md:p-14 relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-96 h-96 bg-indigo-50/60 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
-          <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <p class="text-indigo-500 text-sm font-semibold tracking-widest uppercase mb-3">Palvelut</p>
-              <h2 id="konsultointi-otsikko" class="text-3xl md:text-4xl font-bold text-slate-900 mb-5">
-                Asiantuntijapalvelut ja<br /><span class="gradient-text">Asiakirjahallinnan Konsultointi</span>
-              </h2>
-              <p class="text-slate-500 leading-relaxed mb-6">
-                LNR Finland auttaa yrityksiä rakentamaan kestäviä dokumentaatioprosesseja ja automaatioita.
-                Asiantuntijamme analysoivat nykyiset prosessisi ja suunnittelevat tehokkaan asiakirjastandardoinnin koko organisaatiolle.
-              </p>
-              <ul class="space-y-3 text-sm text-slate-600">
-                <li class="flex items-start gap-3">
-                  <span class="text-indigo-500 mt-0.5 shrink-0">→</span>
-                  Dokumentaatioprosessien kartoitus ja kehittäminen
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="text-indigo-500 mt-0.5 shrink-0">→</span>
-                  SFS 2487 -standardin mukainen implementointi organisaatioon
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="text-indigo-500 mt-0.5 shrink-0">→</span>
-                  Microsoft 365 -integraatio ja dokumenttiautomaatio
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="text-indigo-500 mt-0.5 shrink-0">→</span>
-                  Henkilöstökoulutus ja käyttöönottotuki
-                </li>
-              </ul>
+    <hr class="divider" />
+
+    <!-- Custom templates — quote form -->
+    <section id="raatalointi" class="py-20 px-6" aria-labelledby="raatalointi-otsikko">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+        <div>
+          <p class="section-label mb-4">Räätälöinti</p>
+          <h2 id="raatalointi-otsikko" class="text-3xl md:text-4xl font-black tracking-tight text-gray-900 mb-5">
+            Asiakirjamallit<br />yrityksesi ilmeeseen
+          </h2>
+          <p class="text-gray-500 leading-relaxed mb-6">
+            Valmiit SFS 2487 -pohjat toimivat erinomaisena perustana, mutta jokainen yritys ansaitsee
+            mallit, jotka heijastavat juuri sen brändiä. LNR Finland räätälöi asiakirjamallit
+            värimaailmasi, logojen, fonttien ja tyyliohjeen mukaan.
+          </p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-indigo-100 flex items-center justify-center shrink-0 mt-0.5">
+                <span class="text-indigo-600 font-bold text-xs">1</span>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-800 text-sm">Brändin mukainen visuaalinen ilme</p>
+                <p class="text-gray-500 text-xs mt-0.5">Logo, värit, fontit ja tyyliohjeet integroituna pohjiin.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-indigo-100 flex items-center justify-center shrink-0 mt-0.5">
+                <span class="text-indigo-600 font-bold text-xs">2</span>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-800 text-sm">SFS 2487 -standardin noudattaminen</p>
+                <p class="text-gray-500 text-xs mt-0.5">Räätälöinti ei tingi standardista — rakenne pysyy vaatimusten mukaisena.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-indigo-100 flex items-center justify-center shrink-0 mt-0.5">
+                <span class="text-indigo-600 font-bold text-xs">3</span>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-800 text-sm">Toimitus käyttövalmiina</p>
+                <p class="text-gray-500 text-xs mt-0.5">Saat valmiit Word-tiedostot, jotka voidaan ottaa käyttöön heti.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Quote form -->
+        <div class="card p-8">
+          <h3 class="font-bold text-gray-900 text-lg mb-1">Pyydä tarjous</h3>
+          <p class="text-gray-500 text-sm mb-6">Kerro tarpeistasi ja palaamme sinulle 1 arkipäivän sisällä.</p>
+          <form action="mailto:info@lnrfinland.fi" method="post" enctype="text/plain" class="space-y-4">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="form-label" for="yritys">Yritys</label>
+                <input class="form-input" type="text" id="yritys" name="Yritys" placeholder="Yritys Oy" required />
+              </div>
+              <div>
+                <label class="form-label" for="nimi">Yhteyshenkilö</label>
+                <input class="form-input" type="text" id="nimi" name="Nimi" placeholder="Etunimi Sukunimi" required />
+              </div>
             </div>
-            <div class="space-y-4">
-              <div class="glass rounded-2xl p-5">
-                <div class="text-indigo-500 text-xl mb-3">🏢</div>
-                <h3 class="text-slate-900 font-semibold mb-2">Document House Oy</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Xerox- ja HP-laitteet sekä kokonaisvaltaiset asiakirjaratkaisut yrityksille.</p>
-              </div>
-              <div class="glass rounded-2xl p-5">
-                <div class="text-violet-500 text-xl mb-3">⚡</div>
-                <h3 class="text-slate-900 font-semibold mb-2">Kameleon Document Automation</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Microsoft 365 -pohjainen dokumenttiautomaatio SaaS-palveluna. Keskitetty ratkaisu pohjien hallintaan, päivitykseen ja brändinmukaisuuteen koko organisaatiossa.</p>
-              </div>
+            <div>
+              <label class="form-label" for="email">Sähköposti</label>
+              <input class="form-input" type="email" id="email" name="Sähköposti" placeholder="etunimi@yritys.fi" required />
+            </div>
+            <div>
+              <label class="form-label" for="puhelin">Puhelinnumero</label>
+              <input class="form-input" type="tel" id="puhelin" name="Puhelinnumero" placeholder="+358 40 000 0000" />
+            </div>
+            <div>
+              <label class="form-label" for="kuvaus">Mitä asiakirjamalleja tarvitset?</label>
+              <textarea class="form-input" id="kuvaus" name="Kuvaus" rows="4" placeholder="Kuvaa lyhyesti tarpeet: esim. tarvittavat pohjatyypit, brändiohje, aikataulu…" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary w-full py-3 text-sm">Lähetä tarjouspyyntö →</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- Kameleon.app CTA -->
+    <section id="kameleon" class="py-20 px-6 bg-gray-50" aria-labelledby="kameleon-otsikko">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <div>
+            <p class="section-label mb-4">Automaatio</p>
+            <h2 id="kameleon-otsikko" class="text-3xl md:text-4xl font-black tracking-tight text-gray-900 mb-5">
+              Haluatko automatisoida mallien käytön?
+            </h2>
+            <p class="text-gray-500 leading-relaxed mb-6">
+              <strong class="text-gray-800">Kameleon</strong> on Microsoft 365 -alustalle rakennettu
+              dokumenttiautomaatioratkaisu, joka tuo asiakirjamallit suoraan Wordiin, PowerPointiin
+              ja Teamsiin — aina ajantasaisina ja brändinmukaisina.
+            </p>
+            <a href="https://www.kameleon.app" target="_blank" rel="noopener" class="btn-primary inline-flex items-center gap-2 px-6 py-3 text-sm">
+              Tutustu Kameleoniin
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 7l-10 10M17 7H7m10 0v10"/></svg>
+            </a>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="card p-5">
+              <div class="text-xl mb-3">⚡</div>
+              <p class="font-semibold text-gray-800 text-sm mb-1">Dokumentti valmiina 2 min</p>
+              <p class="text-gray-500 text-xs leading-relaxed">Jäsennelty pohja ja automaatio nopeuttavat luomista radikaalisti.</p>
+            </div>
+            <div class="card p-5">
+              <div class="text-xl mb-3">🔄</div>
+              <p class="font-semibold text-gray-800 text-sm mb-1">Automaattiset päivitykset</p>
+              <p class="text-gray-500 text-xs leading-relaxed">Pohjamuutos jakautuu välittömästi kaikille käyttäjille.</p>
+            </div>
+            <div class="card p-5">
+              <div class="text-xl mb-3">🏢</div>
+              <p class="font-semibold text-gray-800 text-sm mb-1">Yksi tiedon lähde</p>
+              <p class="text-gray-500 text-xs leading-relaxed">Ei enää manuaalista versiohallintaa tai vanhoja pohjia käytössä.</p>
+            </div>
+            <div class="card p-5">
+              <div class="text-xl mb-3">🤖</div>
+              <p class="font-semibold text-gray-800 text-sm mb-1">AI-yhteensopiva</p>
+              <p class="text-gray-500 text-xs leading-relaxed">Toimii Copilotin ja AI-agenttien kanssa. Tukee RAG-arkkitehtuuria.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <hr class="divider" />
 
     <!-- Contact -->
     <section id="yhteystiedot" class="py-20 px-6" aria-label="Yhteystiedot">
       <div class="max-w-6xl mx-auto text-center">
-        <h2 class="text-3xl font-bold text-slate-900 mb-4">Ota yhteyttä</h2>
-        <p class="text-slate-500 mb-8 max-w-md mx-auto">Kiinnostuitko tuotteistamme tai konsultointipalveluistamme? Otamme mielellämme yhteyttä.</p>
-        <a href="mailto:info@lnrfinland.fi" class="inline-block px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all btn-primary text-lg">
+        <p class="section-label mb-4">Yhteystiedot</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight text-gray-900 mb-4">Ota yhteyttä</h2>
+        <p class="text-gray-500 mb-8 max-w-md mx-auto text-sm">Kiinnostuitko tuotteistamme, räätälöinnistä tai automaatiosta? Otamme mielellämme yhteyttä.</p>
+        <a href="mailto:info@lnrfinland.fi" class="btn-primary inline-block px-8 py-3 text-sm">
           info@lnrfinland.fi
         </a>
       </div>
@@ -462,20 +490,20 @@
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-200 py-10 px-6 mt-4 bg-white/60">
+  <footer class="border-t border-gray-200 py-10 px-6 bg-gray-50">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8">
       <div>
-        <div class="text-indigo-700 font-bold text-lg mb-3">LNR Finland Oy</div>
-        <p class="text-slate-500 text-sm mb-1">Konserniin kuuluvat yhtiöt:</p>
-        <ul class="text-sm text-slate-600 space-y-0.5">
-          <li>— Document House Oy</li>
+        <div class="text-indigo-700 font-bold text-base mb-3">LNR Finland Oy</div>
+        <p class="text-gray-400 text-xs mb-1">Konserniin kuuluvat yhtiöt:</p>
+        <ul class="text-xs text-gray-500 space-y-0.5">
           <li>— Kameleon Document Automation Oy</li>
+          <li>— Document House Oy</li>
         </ul>
       </div>
-      <div class="text-sm text-slate-400 space-y-1.5 md:text-right">
-        <p>Maksunvälityksestä vastaa <strong class="text-slate-600">Document House</strong> Stripe-integraatiolla.</p>
+      <div class="text-xs text-gray-400 space-y-1.5 md:text-right">
+        <p>Maksunvälityksestä vastaa <strong class="text-gray-600">Document House Oy</strong> Stripe-integraatiolla.</p>
         <p>Laskutus tapahtuu Document Housen kautta.</p>
-        <p class="pt-4 text-slate-300">© 2025 LNR Finland Oy. Kaikki oikeudet pidätetään.</p>
+        <p class="pt-4 text-gray-300">© 2025 LNR Finland Oy. Kaikki oikeudet pidätetään.</p>
       </div>
     </div>
   </footer>
