@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kameleon — Document Governance for Microsoft 365</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#5AB900; --green-soft:#BBDF66; --forest:#234A00; --forest-mid:#3D8000; --tint:#EDF7CC;
+    --ink:#2D2D2D; --muted:#6E6E6A; --secondary:#8A8A88;
+    --bg:#FFFFFF; --surface:#F5F5F3; --line:#E0DFDA; --charcoal:#2D2D2D;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+  h1,h2,h3{letter-spacing:-.025em;line-height:1.08;font-weight:600}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  section{padding:92px 0}
+  .eyebrow{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--green);font-weight:600;margin-bottom:16px;display:block}
+
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:12px 22px;border-radius:9px;transition:.16s ease;cursor:pointer;border:1px solid transparent}
+  .btn-primary{background:var(--green);color:#fff}
+  .btn-primary:hover{background:var(--forest-mid)}
+  .btn-ghost{border-color:var(--line);color:var(--ink);background:#fff}
+  .btn-ghost:hover{border-color:var(--forest-mid)}
+  .btn-arrow{transition:transform .16s ease}.btn:hover .btn-arrow{transform:translateX(3px)}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:19px;color:var(--ink);letter-spacing:-.02em}
+  .logo-mark{width:26px;height:26px;border-radius:7px;background:var(--green);position:relative;flex:none}
+  .logo-mark::after{content:"";position:absolute;inset:6px 6px auto 6px;height:3px;border-radius:2px;background:#fff;box-shadow:0 6px 0 rgba(255,255,255,.7),0 12px 0 rgba(255,255,255,.4)}
+  .nav-links{display:flex;align-items:center;gap:28px;font-size:14.5px;font-weight:500;color:var(--muted)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{display:flex;align-items:center;gap:16px}
+  .nav-login{font-size:14.5px;font-weight:500;color:var(--muted)}
+  @media(max-width:860px){.nav-links,.nav-login{display:none}}
+
+  .hero{padding:88px 0 90px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+  .hero h1{font-size:clamp(38px,5vw,60px);font-weight:600;margin:6px 0 22px}
+  .hero h1 .hl{color:var(--green)}
+  .hero p.lede{font-size:18px;color:var(--muted);max-width:31em;margin-bottom:30px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero-note{margin-top:22px;font-size:13.5px;color:var(--muted);display:flex;align-items:center;gap:8px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--green);display:inline-block;box-shadow:0 0 0 4px rgba(90,185,0,.15)}
+
+  .doc{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 24px 48px -30px rgba(45,45,45,.22);padding:24px;overflow:hidden}
+  .doc-top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:16px}
+  .doc-title{font-weight:600;font-size:14px;color:var(--ink);display:flex;align-items:center;gap:8px}
+  .lock{width:14px;height:14px;flex:none}
+  .doc-tag{font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding:4px 9px;border-radius:6px;background:var(--tint);color:var(--forest);font-weight:600}
+  .gov-line{height:10px;border-radius:5px;background:var(--surface);margin:10px 0;position:relative}
+  .gov-line::after{content:"";position:absolute;left:-6px;top:50%;transform:translateY(-50%);width:3px;height:16px;background:var(--green);border-radius:2px}
+  .gov-line.w1{width:62%}.gov-line.w2{width:90%}.gov-line.w3{width:74%}
+  .ai-zone{margin:16px 0;border:1.5px dashed var(--green);border-radius:9px;background:rgba(90,185,0,.05);padding:13px 13px 15px;position:relative}
+  .ai-badge{position:absolute;top:-10px;left:13px;background:var(--green);color:#fff;font-size:10.5px;font-weight:600;letter-spacing:.04em;padding:2px 8px;border-radius:5px}
+  .ai-text{font-size:13px;color:var(--ink);min-height:40px}
+  .ai-cursor{display:inline-block;width:2px;height:14px;background:var(--green);vertical-align:-2px;margin-left:1px;animation:blink 1s step-end infinite}
+  @keyframes blink{50%{opacity:0}}
+  .doc-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+  .meta-chip{font-size:11px;color:var(--muted);background:var(--surface);border:1px solid var(--line);padding:4px 9px;border-radius:6px;font-weight:500}
+  .meta-chip b{color:var(--ink);font-weight:600}
+  .ratio{position:absolute;right:0;bottom:0;background:var(--charcoal);color:#fff;font-weight:600;font-size:12px;padding:7px 13px;border-radius:12px 0 15px 0}
+  .ratio b{color:var(--green-soft)}
+  @media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:38px}.doc{order:-1}}
+
+  .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface);padding:34px 0}
+  .trust-label{text-align:center;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--secondary);margin-bottom:20px;font-weight:600}
+  .logos{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 34px}
+  .logos span{font-weight:600;font-size:16px;color:var(--secondary);letter-spacing:-.01em}
+
+  /* benefits */
+  .ben .lead{max-width:38em;margin-bottom:50px}
+  .ben h2{font-size:clamp(28px,3.6vw,42px);font-weight:600;margin-bottom:18px;max-width:16em}
+  .ben .lead p{font-size:17px;color:var(--muted)}
+  .ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .ben-cell{background:var(--bg);padding:32px 28px}
+  .ben-cell:hover{background:var(--surface)}
+  .ben-ic{width:40px;height:40px;border-radius:10px;background:var(--tint);display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--forest)}
+  .ben-ic svg{width:21px;height:21px}
+  .ben-cell h3{font-size:17px;font-weight:600;margin-bottom:8px;color:var(--ink)}
+  .ben-cell p{font-size:14.5px;color:var(--muted)}
+  @media(max-width:860px){.ben-grid{grid-template-columns:1fr}}
+
+  /* matrix */
+  .mtx{background:var(--surface)}
+  .mtx-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .mtx h2{font-size:clamp(28px,3.6vw,42px);font-weight:600;margin-bottom:20px}
+  .mtx p{font-size:16.5px;color:var(--muted);max-width:34em}.mtx p+p{margin-top:15px}
+  .mtx p .em{color:var(--forest);font-weight:600}
+  .matrix{display:grid;grid-template-columns:22px 1fr;grid-template-rows:1fr 22px;gap:10px}
+  .m-ylab{grid-column:1;grid-row:1;display:flex;flex-direction:column;justify-content:space-between;align-items:center}
+  .m-ylab span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--secondary);font-weight:700}
+  .m-grid{grid-column:2;grid-row:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;aspect-ratio:1.15/1}
+  .m-cell{border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;justify-content:flex-end;background:var(--bg);font-weight:600;font-size:15px;color:var(--ink);min-height:104px}
+  .m-cell small{font-weight:400;color:var(--secondary);font-size:12px;margin-top:4px;line-height:1.35}
+  .m-cell.hot{background:var(--forest);border-color:var(--forest);color:#fff;box-shadow:0 14px 30px -16px rgba(35,74,0,.5)}
+  .m-cell.hot small{color:rgba(255,255,255,.78)}
+  .m-cell.hot .tagme{display:inline-block;font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;background:var(--green);color:#fff;padding:2px 7px;border-radius:5px;margin-bottom:8px;align-self:flex-start;font-weight:700}
+  .m-xlab{grid-column:2;grid-row:2;display:flex;justify-content:space-between;align-items:center}
+  .m-xlab span{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--secondary);font-weight:700}
+  @media(max-width:860px){.mtx-grid{grid-template-columns:1fr;gap:36px}}
+
+  /* 90/10 principle */
+  .prin-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+  .prin h2{font-size:clamp(26px,3.3vw,38px);font-weight:600;margin-bottom:18px}
+  .prin p{font-size:16.5px;color:var(--muted);max-width:34em}
+  .split-card{background:var(--forest);border-radius:16px;padding:32px;color:#fff}
+  .split-card .sc-h{font-size:12px;text-transform:uppercase;letter-spacing:.08em;opacity:.66;margin-bottom:18px;font-weight:600}
+  .sc-row{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+  .sc-row:last-child{border-bottom:none;padding-bottom:0}
+  .sc-key{font-weight:700;font-size:24px;flex:none;width:58px;letter-spacing:-.03em}
+  .sc-key.g{color:var(--green-soft)}
+  .sc-body strong{display:block;font-size:15px;margin-bottom:3px;font-weight:600}
+  .sc-body span{font-size:13.5px;color:rgba(255,255,255,.72)}
+  @media(max-width:860px){.prin-grid{grid-template-columns:1fr;gap:34px}}
+
+  /* governance at the source */
+  .source-head{max-width:40em;margin-bottom:44px}
+  .source-head h2{font-size:clamp(28px,3.6vw,42px);font-weight:600;margin-bottom:18px}
+  .source-head p{font-size:16.5px;color:var(--muted)}
+  .source-head p+p{margin-top:14px}
+  .flow{display:flex;align-items:stretch;gap:30px;flex-wrap:nowrap}
+  .phase{flex:1;border:1px solid var(--line);border-radius:12px;background:var(--bg);padding:18px 14px;text-align:center;position:relative}
+  .phase+.phase::before{content:"→";position:absolute;left:-22px;top:50%;transform:translateY(-50%);color:var(--secondary);font-size:15px}
+  .phase .pn{font-weight:600;font-size:15px;color:var(--ink)}
+  .phase .pc{font-size:11.5px;color:var(--secondary);margin-top:4px;line-height:1.35}
+  .phase.first{background:var(--forest);border-color:var(--forest)}
+  .phase.first .pn{color:#fff}
+  .phase.first .pc{color:rgba(255,255,255,.78)}
+  .phase.first .ptag{display:inline-block;font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;background:var(--green);color:#fff;font-weight:700;padding:2px 7px;border-radius:5px;margin-bottom:8px}
+  .flow-cap{display:flex;gap:22px;margin-top:30px}
+  .flow-col{flex:1;border-top:2px solid var(--line);padding-top:16px}
+  .flow-col.good{border-top-color:var(--green)}
+  .flow-col h4{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:5px;letter-spacing:0}
+  .flow-col p{font-size:14px;color:var(--muted)}
+  @media(max-width:860px){.flow{flex-wrap:wrap;gap:10px}.phase{flex:1 1 44%}.phase+.phase::before{display:none}.flow-cap{flex-direction:column;gap:18px}}
+
+  /* features: two parts */
+  .parts{background:var(--surface)}
+  .parts-head{max-width:36em;margin-bottom:48px}
+  .parts-head h2{font-size:clamp(28px,3.6vw,42px);font-weight:600;margin-bottom:16px}
+  .parts-head p{font-size:16.5px;color:var(--muted)}
+  .part{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:42px;margin-bottom:22px}
+  .part:last-child{margin-bottom:0}
+  .part-steps{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+  .part-steps span{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;color:var(--forest);background:var(--tint);padding:3px 9px;border-radius:5px}
+  .part h3{font-size:24px;font-weight:600;margin-bottom:12px;color:var(--ink)}
+  .part p{font-size:15px;color:var(--muted);margin-bottom:18px}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chips span{font-size:12.5px;color:var(--ink);background:var(--surface);border:1px solid var(--line);padding:5px 11px;border-radius:7px;font-weight:500}
+  .part.flip .part-visual{order:-1}
+  @media(max-width:860px){.part{grid-template-columns:1fr;gap:28px;padding:30px}.part.flip .part-visual{order:0}}
+
+  /* mocks */
+  .mock{border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden}
+  .mock-top{background:var(--charcoal);color:#fff;font-size:12.5px;font-weight:600;padding:11px 16px;display:flex;align-items:center;gap:8px}
+  .mock-dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
+  .hub-row{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--ink);background:#fff}
+  .hub-row:last-child{border-bottom:none}
+  .hub-row .hd{width:7px;height:7px;border-radius:2px;background:var(--green);flex:none}
+  .hub-row.active{background:var(--tint);font-weight:600;color:var(--forest)}
+  .ribbon{display:flex;gap:4px;background:#fff;border-bottom:1px solid var(--line);padding:8px 10px}
+  .ribbon span{font-size:12px;color:var(--secondary);padding:5px 11px;border-radius:7px}
+  .ribbon span.on{background:var(--green);color:#fff;font-weight:600}
+  .pane{padding:16px;background:#fff}
+  .pane-h{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--secondary);font-weight:600;margin-bottom:12px}
+  .pane-item{display:flex;align-items:center;gap:9px;font-size:13.5px;color:var(--ink);padding:10px 12px;border:1px solid var(--line);border-radius:9px;margin-bottom:8px}
+  .pane-item:last-child{margin-bottom:0}
+  .pane-item .pi{width:16px;height:16px;color:var(--green);flex:none}
+
+  /* quote */
+  .quote{text-align:center}
+  .quote blockquote{font-weight:600;font-size:clamp(23px,3vw,34px);line-height:1.32;max-width:18em;margin:0 auto 24px;color:var(--ink);letter-spacing:-.02em}
+  .quote blockquote .qm{color:var(--green)}
+  .quote cite{font-style:normal;font-size:14px;color:var(--secondary)}
+
+  /* pricing */
+  .price{background:var(--charcoal);color:#fff;border-radius:18px;padding:52px;display:grid;grid-template-columns:1.3fr 1fr;gap:38px;align-items:center}
+  .price .eyebrow{color:var(--green-soft)}
+  .price h2{font-size:clamp(26px,3.2vw,38px);font-weight:600;margin-bottom:14px}
+  .price p{color:rgba(255,255,255,.72);font-size:15.5px;max-width:30em}
+  .price-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:26px}
+  .price-amt{font-size:42px;font-weight:700;line-height:1;letter-spacing:-.03em}
+  .price-amt small{font-size:16px;color:rgba(255,255,255,.6);font-weight:500;letter-spacing:0}
+  .price-sub{font-size:13px;color:rgba(255,255,255,.6);margin:9px 0 20px}
+  .price .btn-primary{background:var(--green);color:#fff;width:100%;justify-content:center}
+  .price .btn-primary:hover{background:#66cc00}
+  @media(max-width:860px){.price{grid-template-columns:1fr;padding:34px}}
+
+  .final{text-align:center}
+  .final h2{font-size:clamp(30px,4.2vw,50px);font-weight:600;margin-bottom:14px}
+  .final p{font-size:18px;color:var(--muted);max-width:26em;margin:0 auto 30px}
+  .final .hero-cta{justify-content:center}
+
+  footer{background:var(--charcoal);color:rgba(255,255,255,.66);padding:56px 0 32px;font-size:14px}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:34px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.12)}
+  .foot-grid h4{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--green-soft);margin-bottom:15px;font-weight:600}
+  .foot-grid a{display:block;color:rgba(255,255,255,.66);margin-bottom:9px;font-size:14px}
+  .foot-grid a:hover{color:#fff}
+  .foot-brand .logo{color:#fff;margin-bottom:14px}
+  .foot-brand .logo .logo-mark::after{background:var(--charcoal);box-shadow:0 6px 0 var(--charcoal),0 12px 0 rgba(45,45,45,.6)}
+  .foot-brand p{font-size:14px;color:rgba(255,255,255,.5);max-width:24em}
+  .foot-tag{font-size:13px;color:var(--green-soft);margin-top:14px;font-weight:500}
+  .foot-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:22px;font-size:12.5px;color:rgba(255,255,255,.42)}
+  @media(max-width:860px){.foot-grid{grid-template-columns:1fr 1fr}}
+
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#"><span class="logo-mark"></span>Kameleon</a>
+    <nav class="nav-links">
+      <a href="#benefits">Why Kameleon</a>
+      <a href="#how">How it works</a>
+      <a href="#parts">Product</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-login" href="#">Log in</a>
+      <a class="btn btn-primary" href="#cta">Book a meeting</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Tekoäly generoi. Kameleon vakioi.</span>
+      <h1>Documents your whole organization can <span class="hl">trust</span>.</h1>
+      <p class="lede">Kameleon brings governance to the operational documents you produce again and again — so every contract, proposal and report reflects how your organization means to work, and everyone can rely on it. Right inside Microsoft 365.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#cta">Book a meeting <span class="btn-arrow">→</span></a>
+        <a class="btn btn-ghost" href="#benefits">See how it works</a>
+      </div>
+      <div class="hero-note"><span class="dot"></span> Trusted by 30+ Finnish cities, public bodies and growing companies.</div>
+    </div>
+    <div class="doc" aria-hidden="true">
+      <div class="doc-top">
+        <div class="doc-title">
+          <svg class="lock" viewBox="0 0 24 24" fill="none" stroke="#2D2D2D" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+          Service_Agreement.docx
+        </div>
+        <div class="doc-tag">Governed</div>
+      </div>
+      <div class="gov-line w2"></div>
+      <div class="gov-line w1"></div>
+      <div class="ai-zone">
+        <span class="ai-badge">AI + you · 10%</span>
+        <div class="ai-text"><span id="aiText"></span><span class="ai-cursor"></span></div>
+      </div>
+      <div class="gov-line w3"></div>
+      <div class="gov-line w2"></div>
+      <div class="doc-meta">
+        <span class="meta-chip">brand: <b>Acme Oy</b></span>
+        <span class="meta-chip">class: <b>Confidential</b></span>
+        <span class="meta-chip">owner: <b>Legal</b></span>
+        <span class="meta-chip">retention: <b>7y</b></span>
+        <span class="meta-chip">→ SharePoint</span>
+      </div>
+      <div class="ratio"><b>90%</b> governed · 10% yours</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="trust-label">In daily use across Finnish organizations</div>
+  <div class="wrap logos">
+    <span>Espoo</span><span>Helsinki</span><span>Oulu</span><span>Veikkaus</span><span>Tampereen Energia</span><span>Puustelli</span><span>Rauma</span><span>Rovaniemi</span><span>Alfons Håkans</span><span>KEHA-keskus</span><span>Tiera</span><span>Kokkola</span>
+  </div>
+</div>
+
+<!-- BENEFITS / mental image first -->
+<section class="ben" id="benefits">
+  <div class="wrap">
+    <div class="lead">
+      <span class="eyebrow">What Kameleon does</span>
+      <h2>Your documents, the way your organization actually means them.</h2>
+      <p>Anyone can produce a document now. The harder part is making sure the operational ones — the contracts, proposals, reports and decisions an organization issues again and again — say what it intends, look the way they should, and can be trusted without a second read. That's the job Kameleon does.</p>
+    </div>
+    <div class="ben-grid">
+      <div class="ben-cell">
+        <div class="ben-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Documents reflect your intent</h3>
+        <p>Structure, brand, clauses and classification are decided once, centrally — not reinvented by whoever opens the file.</p>
+      </div>
+      <div class="ben-cell">
+        <div class="ben-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Trusted on sight</h3>
+        <p>Colleagues don't have to re-check or re-learn each document type. If it came from Kameleon, it's right.</p>
+      </div>
+      <div class="ben-cell">
+        <div class="ben-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4-8 4-8-4 8-4z"/><path d="M4 11.5l8 4 8-4"/><path d="M4 16l8 4 8-4"/></svg></div>
+        <h3>One source of truth</h3>
+        <p>Master templates and content live in Kameleon — not scattered across drives, inboxes and desktops.</p>
+      </div>
+      <div class="ben-cell">
+        <div class="ben-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8"/><path d="M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.6L4 16"/><path d="M4 20v-4h4"/></svg></div>
+        <h3>Change once, everywhere</h3>
+        <p>Elements are independent, so you update only what changed — and everyone has the latest instantly.</p>
+      </div>
+      <div class="ben-cell">
+        <div class="ben-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 6.4a3 3 0 0 1 0 5.6"/><path d="M17.5 19a5.5 5.5 0 0 0-3-4.9"/></svg></div>
+        <h3>End users notice nothing</h3>
+        <p>Templates stay exactly where people already find them. Only the upkeep gets easier.</p>
+      </div>
+      <div class="ben-cell">
+        <div class="ben-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l1.7 4.6L18 10l-4.3 1.4L12 16l-1.7-4.6L6 10l4.3-1.4L12 4z"/><path d="M18.5 15l.6 1.6 1.6.6-1.6.6-.6 1.6-.6-1.6-1.6-.6 1.6-.6.6-1.6z"/></svg></div>
+        <h3>AI stays within the frame</h3>
+        <p>Let Copilot enrich the content. Kameleon keeps structure, brand and governance intact.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MATRIX: the argument -->
+<section class="mtx" id="how">
+  <div class="wrap mtx-grid">
+    <div>
+      <span class="eyebrow">Where governance matters</span>
+      <h2>It was never really about speed.</h2>
+      <p>AI already makes drafting a document fast and almost automatic. So the question isn't how quickly a document appears — it's whether it reflects how your organization wants to work, and whether everyone else can rely on it.</p>
+      <p>Map your documents on two axes: how much <span class="em">human judgment</span> they take, and how often the same kind gets <span class="em">repeated</span>. Kameleon's sweet spot is the top-right — judgment-heavy documents that recur, made by many people across the organization. That's exactly where standardization earns trust.</p>
+    </div>
+    <div class="matrix" aria-hidden="true">
+      <div class="m-ylab"><span>Judgment</span><span>Information</span></div>
+      <div class="m-grid">
+        <div class="m-cell">Bespoke<small>Write it once, by hand</small></div>
+        <div class="m-cell hot"><span class="tagme">Kameleon</span>Governed &amp; repeatable<small>Operational documents many people produce</small></div>
+        <div class="m-cell">Trivial<small>Just send it</small></div>
+        <div class="m-cell">Automate<small>Let data &amp; AI fill it</small></div>
+      </div>
+      <div class="m-xlab"><span>One-off</span><span>Repeating</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 90/10 principle -->
+<section class="prin">
+  <div class="wrap prin-grid">
+    <div>
+      <span class="eyebrow">The principle</span>
+      <h2>Standardize the 90%. Let AI and people handle the 10%.</h2>
+      <p>In that quadrant, most of a document should be fixed — so the organization knows it and can trust it without learning each file from scratch. AI and authors complete the rest, always inside the approved frame.</p>
+    </div>
+    <div class="split-card">
+      <div class="sc-h">The 90 / 10 split</div>
+      <div class="sc-row"><div class="sc-key">90%</div><div class="sc-body"><strong>Kameleon defines</strong><span>Structure · standard clauses · brand &amp; logos · metadata &amp; classification · lifecycle rules</span></div></div>
+      <div class="sc-row"><div class="sc-key g">10%</div><div class="sc-body"><strong>AI &amp; people add</strong><span>The situation-specific content — always inside the approved frame</span></div></div>
+      <div class="sc-row"><div class="sc-key g">=</div><div class="sc-body"><strong>Controlled, yet tailored</strong><span>Trusted by everyone, without re-learning each document</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GOVERNANCE AT THE SOURCE -->
+<section class="source">
+  <div class="wrap">
+    <div class="source-head">
+      <span class="eyebrow">Governance at the source</span>
+      <h2>Fix it where the document is born.</h2>
+      <p>Every document moves through the same lifecycle — created, captured, stored, processed, delivered. Most tools, and most of the attention, sit at the far end: classifying, searching and correcting content after it already exists.</p>
+      <p>Kameleon works at the very start. When structure, brand, metadata and classification are right the moment a document is created, everything downstream works almost by itself. Get the beginning right, and the end takes care of itself.</p>
+    </div>
+    <div class="flow" aria-hidden="true">
+      <div class="phase first"><span class="ptag">Kameleon</span><div class="pn">Create</div><div class="pc">brand · metadata · classification set here</div></div>
+      <div class="phase"><div class="pn">Capture</div><div class="pc">already structured</div></div>
+      <div class="phase"><div class="pn">Store</div><div class="pc">filed correctly</div></div>
+      <div class="phase"><div class="pn">Process</div><div class="pc">ready for automation</div></div>
+      <div class="phase"><div class="pn">Deliver</div><div class="pc">trusted &amp; findable</div></div>
+    </div>
+    <div class="flow-cap">
+      <div class="flow-col"><h4>The usual approach</h4><p>Pour effort into the end of the process — searching, reclassifying and fixing content that was never governed in the first place. Hard, and never quite finished.</p></div>
+      <div class="flow-col good"><h4>The Kameleon approach</h4><p>Get the start right and the rest follows. Born-governed documents need far less fixing later — and are AI-ready by default.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES: two parts -->
+<section class="parts" id="parts">
+  <div class="wrap">
+    <div class="parts-head">
+      <span class="eyebrow">How Kameleon is built</span>
+      <h2>Two parts. One governed system.</h2>
+      <p>A place to govern your documents, and the tools where people actually create them — working together so control never gets in the way of the work.</p>
+    </div>
+
+    <!-- Part 1 -->
+    <div class="part">
+      <div>
+        <div class="part-steps"><span>For template owners</span><span>Rakenna</span><span>Ylläpidä</span><span>Jaa</span></div>
+        <h3>Governance Hub</h3>
+        <p>Set up your organization and its units, users and groups, brand and layout templates, content, metadata, data sources and storage automation — all in one place. Every element is independent, so maintenance means changing only what changed. Publish templates straight to the right organization in its own look, into SharePoint and the asset library — so end users see no change at all. The templates stay where they've always been. A horizontal solution for the whole organization; only the upkeep gets easier.</p>
+        <div class="chips"><span>Organization &amp; units</span><span>Users &amp; groups</span><span>Brand / layout</span><span>Content</span><span>Metadata</span><span>Data sources</span><span>Storage automation</span></div>
+      </div>
+      <div class="part-visual">
+        <div class="mock">
+          <div class="mock-top"><span class="mock-dot"></span> Governance Hub · Acme Oy</div>
+          <div class="hub-row active"><span class="hd"></span> Brand &amp; layout templates</div>
+          <div class="hub-row"><span class="hd"></span> Content blocks &amp; phrases</div>
+          <div class="hub-row"><span class="hd"></span> Metadata &amp; classification</div>
+          <div class="hub-row"><span class="hd"></span> Data sources</div>
+          <div class="hub-row"><span class="hd"></span> Storage automation → SharePoint</div>
+          <div class="hub-row"><span class="hd"></span> Publish to asset library</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Part 2 -->
+    <div class="part flip">
+      <div>
+        <div class="part-steps"><span>For everyone who creates documents</span><span>Käytä</span></div>
+        <h3>Office, Teams &amp; Outlook add-ins</h3>
+        <p>Right inside Word, PowerPoint, Excel, Teams and Outlook, creating a document gets easier still — with automation, live data, predefined fields and approved phrases. These are usually tailored to a function's needs, and come with a short, friendly onboarding so the team is productive from day one.</p>
+        <div class="chips"><span>Word</span><span>PowerPoint</span><span>Excel</span><span>Teams</span><span>Outlook</span></div>
+      </div>
+      <div class="part-visual">
+        <div class="mock">
+          <div class="ribbon"><span>Word</span><span class="on">Kameleon</span><span>Insert</span><span>Review</span></div>
+          <div class="pane">
+            <div class="pane-h">Create from Kameleon</div>
+            <div class="pane-item"><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h9l5 5v11H5z"/><path d="M14 4v5h5"/></svg> Proposal template</div>
+            <div class="pane-item"><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg> Insert approved phrase</div>
+            <div class="pane-item"><svg class="pi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg> Pull data from CRM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote">
+  <div class="wrap">
+    <blockquote><span class="qm">"</span>Our experts save time when everything doesn't have to be created from scratch. The content, the look, and the technical quality are all higher.<span class="qm">"</span></blockquote>
+    <cite>— Customer reference, Finnish industrial services group</cite>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="price">
+      <div>
+        <span class="eyebrow">Simple, honest pricing</span>
+        <h2>Know the price before the demo.</h2>
+        <p>One flat fee for the Governance Hub, plus a one-time onboarding that sets up your brand, templates and metadata properly. No seat counting, no enterprise quote dance.</p>
+      </div>
+      <div class="price-box">
+        <div class="price-amt">€349<small> / month</small></div>
+        <div class="price-sub">+ €1,980 one-time onboarding</div>
+        <a class="btn btn-primary" href="#cta">See full pricing →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" id="cta">
+  <div class="wrap">
+    <span class="eyebrow">Ready when you are</span>
+    <h2>Documents your team can trust.</h2>
+    <p>No IT project. No long rollout. Just operational documents that say what your organization means.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#">Book a meeting <span class="btn-arrow">→</span></a>
+      <a class="btn btn-ghost" href="#">Watch the 2-min demo</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="#"><span class="logo-mark"></span>Kameleon</a>
+        <p>The governance layer beneath your documents — keeping Microsoft 365 content on-brand, correct and trusted.</p>
+        <div class="foot-tag">Tekoäly generoi. Kameleon vakioi.</div>
+      </div>
+      <div><h4>Product</h4><a href="#">Governance Hub</a><a href="#">Office add-ins</a><a href="#">API</a><a href="#">Pricing</a></div>
+      <div><h4>Solutions</h4><a href="#">Communications</a><a href="#">Sales materials</a><a href="#">Compliance</a><a href="#">Information management</a></div>
+      <div><h4>Resources</h4><a href="#">Help center</a><a href="#">Blog</a><a href="#">System status</a><a href="#">Log in</a></div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Kameleon · Document House Oy · Business ID 3479719-3</span>
+      <span>Privacy policy</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var el=document.getElementById('aiText');
+    if(!el) return;
+    var lines=[
+      "This Agreement is entered into between the parties for the provision of managed services…",
+      "The Supplier shall deliver the Services in accordance with the agreed service levels…",
+      "Pricing is set out in Schedule 2 and reviewed annually on the renewal date…"
+    ];
+    var li=0,ci=0,deleting=false;
+    var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce){el.textContent=lines[0];return;}
+    function tick(){
+      var cur=lines[li];
+      if(!deleting){el.textContent=cur.slice(0,++ci);if(ci===cur.length){deleting=true;return setTimeout(tick,1600);}}
+      else{el.textContent=cur.slice(0,--ci);if(ci===0){deleting=false;li=(li+1)%lines.length;}}
+      setTimeout(tick,deleting?18:34);
+    }
+    tick();
+  })();
+</script>
+</body>
+</html>
